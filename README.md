@@ -6,7 +6,7 @@ Usage:
 
 To create a button programmatically:
 
-```
+```objectivec
 // Create a new button and set it to one of the predefined themes
 NiftyButton *button = [[NiftyButton alloc] initWithFrame:frame];
 [button setColorThemeGreen];
