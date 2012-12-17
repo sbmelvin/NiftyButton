@@ -1,4 +1,4 @@
-NiftyButton is my attempt to replicate the style of the buttons used by [Twitter Bootstrap](http://twitter.github.com/boo$
+NiftyButton is my attempt to replicate the style of the buttons used by [Twitter Bootstrap](http://twitter.github.com/bootstrap/components.html#buttonDropdowns).
 
 The NiftyButton class enables developers to quickly create visually appealing buttons.     
 
