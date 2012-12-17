@@ -8,7 +8,7 @@ To create a button programmatically:
 
 ```
 // Create a new button and set it to one of the predefined themes
-NiftyButton *button = [NiftyButton alloc] initWithFrame:frame];
+NiftyButton *button = [[NiftyButton alloc] initWithFrame:frame];
 [button setColorThemeGreen];
 
 // Create a new button using one of the convenience methods
@@ -17,6 +17,8 @@ NiftyButton *button = [NiftyButton yellowButtonWithFrame:frame];
 button.borderColor = [UIColor blackColor];
 
 // Create a new button with a custom color style (red border with a blue to green gradient).
+// A NiftyButton has three main properties: 1) border color, 2) top color, 3) bottom color.
+// The top and bottom colors are used to create the top to bottom gradient on the face of the button.
 NiftyButton *button = [NiftyButton buttonWithBorderColor:[UIColor redColor] topColor:[UIColor blueColor] bottomColor:[UIColor greenColor] frame:aFrame];
 ```
 
