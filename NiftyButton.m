@@ -13,8 +13,11 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation NiftyButton {
-    UIImage *_gBackgroundImage;
-    UIImage *_gBackgroundImageHighlighted;
+	UIImage *_normalBackgroundImage;
+	UIImage *_highlightedBackgroundImage;
+	UIImage *_selectedBackgroundImage;
+	UIImage *_disabledBackgroundImage;
+	
     int _borderRadius;
     int _height;
 }
@@ -186,6 +189,7 @@
     _topColor = topColor;
     [self releaseBackgroundImages];
     [self setupBackgrounds];
+	
 }
 
 - (void)setBorderColor:(UIColor *)borderColor{
