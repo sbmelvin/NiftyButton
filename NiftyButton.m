@@ -84,7 +84,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         _borderRadius = 4;
-        _height = 37;
+        _height = self.frame.size.height;
         
         [self setColorThemeWhite];
         [self setupBackgrounds];
@@ -203,8 +203,11 @@
     
     // Generate background images if necessary
     if (!_gBackgroundImage && !_gBackgroundImageHighlighted) {
-        _gBackgroundImage = [[self drawBackgroundImageHighlighted:NO] resizableImageWithCapInsets:UIEdgeInsetsMake(_borderRadius, _borderRadius, _borderRadius, _borderRadius) resizingMode:UIImageResizingModeStretch];
-        _gBackgroundImageHighlighted = [[self drawBackgroundImageHighlighted:YES] resizableImageWithCapInsets:UIEdgeInsetsMake(_borderRadius, _borderRadius, _borderRadius, _borderRadius) resizingMode:UIImageResizingModeStretch];
+		
+		_gBackgroundImage = [[self drawBackgroundImageHighlighted:NO] resizableImageWithCapInsets:UIEdgeInsetsMake(_borderRadius, _borderRadius, _borderRadius, _borderRadius)];
+		
+		_gBackgroundImageHighlighted = [[self drawBackgroundImageHighlighted:YES] resizableImageWithCapInsets:UIEdgeInsetsMake(_borderRadius, _borderRadius, _borderRadius, _borderRadius)];
+		
     }
     
     // Set background for the button instance
@@ -247,7 +250,7 @@
     [roundedRectanglePath addClip];
     
     // Use one of the two gradients depending on the state of the button
-    CGGradientRef background = highlighted? highlightedGradient : gradient;
+    CGGradientRef background = (highlighted ? highlightedGradient : gradient);
     
     // Draw gradient within the path
     CGContextDrawLinearGradient(context, background, CGPointMake(140, 0), CGPointMake(140, _height-1), 0);
@@ -265,7 +268,7 @@
      
     
     // Output as Image
-    UIImage* backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *backgroundImage = UIGraphicsGetImageFromCurrentImageContext();
     
     // Cleanup
     UIGraphicsEndImageContext();
