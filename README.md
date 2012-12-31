@@ -15,8 +15,8 @@ The easiest way to create a NiftyButton is to use one of the six predefined colo
 - NiftyButtonRedTheme
 - NiftyButtonGreenTheme
 - NiftyButtonYellowTheme
-## Examples of the six predefined color styles:
 
+## Examples of the six predefined color styles:
 ![Example](http://i.imgur.com/x9WGb.png)
 
 Using a color-theme will automatically configure your button's text and text-shadow attributes. The white theme will change the text to black; All other themes change the text to white. Text attributes can be changed at any time, but remember that using a method that sets a predefined color-theme will also change the text attributes.
