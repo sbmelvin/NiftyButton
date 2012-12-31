@@ -79,6 +79,7 @@ Click the + to add a key path. Name the key path **theme**, give it the type **S
 - yellow 
 
 You should have something like this:
+
 ![ColorTheme](http://i.imgur.com/tb7TM.png)
 
 
