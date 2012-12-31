@@ -12,18 +12,20 @@
 
 @interface NiftyButton ()
 @property (nonatomic) NSString *theme;
+@property (nonatomic) UIColor *bottomColor;
+@property (nonatomic) UIColor *topColor;
+@property (nonatomic) UIColor *borderColor;
 @end
 
 @implementation NiftyButton
 
-#pragma mark Class Methods
 
 + (NiftyButton*)buttonWithBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor frame:(CGRect)aFrame{
     NiftyButton *newButton = [[NiftyButton alloc] initWithFrame:aFrame];
    
     if(newButton){
-        [newButton setButtonBorderColor:aBorderColor topColor:aTopColor bottomColor:aBottomColor forState:UIControlStateNormal];
-        [newButton setLabelColorBlack];
+		[newButton configureAllControlStatesUsingBorderColor:aBorderColor topColor:aTopColor bottomColor:aBottomColor];
+        [newButton setLabelColorWhite];
     }
 
     return newButton;
@@ -39,11 +41,10 @@
 	return newButton;
 }
 
-#pragma mark Instance Methods
-
 - (void)awakeFromNib{
 	[self setLabelColorBlack];
 	
+	// Configure the button's colors using user-defined keys
 	if (self.theme) {
 		
 		if([self.theme isEqualToString:@"red"]){
@@ -65,7 +66,10 @@
 			[self setColorTheme:NiftyButtonYellowTheme];
 		}
 	}
-	else{
+	else if(self.topColor && self.bottomColor && self.borderColor){
+		[self configureAllControlStatesUsingBorderColor:self.borderColor topColor:self.topColor bottomColor:self.bottomColor];
+	}
+	else {
 		[self setColorTheme:NiftyButtonWhiteTheme];
 	}
 }
@@ -81,34 +85,52 @@
     return self;
 }
 
+- (void)configureAllControlStatesUsingBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor{
+	[self setButtonBorderColor:aBorderColor topColor:aTopColor bottomColor:aBottomColor forState:UIControlStateNormal];
+	[self setButtonBorderColor:aBorderColor topColor:aTopColor bottomColor:aBottomColor forState:UIControlStateDisabled];
+	[self setButtonBorderColor:aBorderColor topColor:aBottomColor bottomColor:aTopColor forState:UIControlStateHighlighted];
+	[self setButtonBorderColor:aBorderColor topColor:aBottomColor bottomColor:aTopColor forState:UIControlStateSelected];
+}
+
+- (void)configureAllControlStatesUsingTheme:(NiftyButtonColorTheme)aTheme{
+	[self setColorTheme:aTheme forState:UIControlStateNormal showDepressed:NO];
+	[self setColorTheme:aTheme forState:UIControlStateDisabled showDepressed:NO];
+	[self setColorTheme:aTheme forState:UIControlStateHighlighted showDepressed:YES];
+	[self setColorTheme:aTheme forState:UIControlStateSelected showDepressed:YES];
+}
+
 - (void)setColorTheme:(NiftyButtonColorTheme)aTheme{
+	[self configureAllControlStatesUsingTheme:aTheme];
+}
+
+- (void)setColorTheme:(NiftyButtonColorTheme)aTheme forState:(UIControlState)aState showDepressed:(BOOL)depressed{
 	UIColor *borderColor, *topColor, *bottomColor;
-		
+	
 	switch (aTheme) {
 		case NiftyButtonBlackTheme:
 			borderColor = UIColorFromRGB(0x303030);
 			topColor = UIColorFromRGB(0x444444);
 			bottomColor = UIColorFromRGB(0x222222);
 			break;
-		
+			
 		case NiftyButtonWhiteTheme:
 			borderColor = UIColorFromRGB(0xd0d0d0);
 			topColor = UIColorFromRGB(0xFFFFFF);
 			bottomColor = UIColorFromRGB(0xE6E6E6);
 			break;
-		
+			
 		case NiftyButtonBlueTheme:
 			borderColor = UIColorFromRGB(0x0062b8);
 			topColor = UIColorFromRGB(0x0084cc);
 			bottomColor = UIColorFromRGB(0x0045cc);
 			break;
-		
+			
 		case NiftyButtonGreenTheme:
 			borderColor = UIColorFromRGB(0x52a552);
 			topColor = UIColorFromRGB(0x62C462);
 			bottomColor = UIColorFromRGB(0x51A351);
 			break;
-		
+			
 		case NiftyButtonRedTheme:
 			borderColor = UIColorFromRGB(0xc44741);
 			topColor = UIColorFromRGB(0xEE5F5B);
@@ -129,24 +151,32 @@
 		[self setLabelColorWhite];
 	}
 	
-	[self setButtonBorderColor:borderColor topColor:topColor bottomColor:bottomColor forState:UIControlStateNormal];
-	[self setButtonBorderColor:borderColor topColor:topColor bottomColor:bottomColor forState:UIControlStateDisabled];
-	[self setButtonBorderColor:borderColor topColor:bottomColor bottomColor:topColor forState:UIControlStateHighlighted];
-	[self setButtonBorderColor:borderColor topColor:bottomColor bottomColor:topColor forState:UIControlStateSelected];
-
+	if (depressed) {
+		[self setButtonBorderColor:borderColor topColor:bottomColor bottomColor:topColor forState:aState];
+	}
+	else {
+		[self setButtonBorderColor:borderColor topColor:topColor bottomColor:bottomColor forState:aState];
+	}
 }
 
 - (void)setLabelColorWhite{
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+	[self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+	[self setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+	
     [self setTitleShadowColor:[UIColor colorWithWhite:0.0 alpha:0.25] forState:UIControlStateNormal];
     [self setTitleShadowColor:[UIColor colorWithWhite:0.0 alpha:0.25] forState:UIControlStateHighlighted];
+	[self setTitleShadowColor:[UIColor colorWithWhite:0.0 alpha:0.25] forState:UIControlStateSelected];
+	[self setTitleShadowColor:[UIColor colorWithWhite:0.0 alpha:0.25] forState:UIControlStateDisabled];
     [[self titleLabel] setShadowOffset:CGSizeMake(0, -1)];
 }
 
 - (void)setLabelColorBlack{
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+    [self setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
 }
 
 - (void)setButtonBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor forState:(UIControlState)aState{

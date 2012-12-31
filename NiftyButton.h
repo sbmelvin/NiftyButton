@@ -22,5 +22,8 @@ typedef NS_ENUM(NSUInteger, NiftyButtonColorTheme)
 
 - (void)setButtonBorderColor:(UIColor*)aBorderColor topColor:(UIColor*)aTopColor bottomColor:(UIColor*)aBottomColor forState:(UIControlState)aState;
 - (void)setColorTheme:(NiftyButtonColorTheme)aTheme;
+- (void)setColorTheme:(NiftyButtonColorTheme)aTheme forState:(UIControlState)aState showDepressed:(BOOL)depressed;
 
+- (void)setLabelColorWhite;
+- (void)setLabelColorBlack;
 @end
