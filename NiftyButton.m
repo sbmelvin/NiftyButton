@@ -20,7 +20,7 @@
 @implementation NiftyButton
 
 
-+ (NiftyButton*)buttonWithBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor frame:(CGRect)aFrame{
++ (id)buttonWithBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor frame:(CGRect)aFrame{
     NiftyButton *newButton = [[NiftyButton alloc] initWithFrame:aFrame];
    
     if(newButton){
@@ -31,7 +31,7 @@
     return newButton;
 }
 
-+ (NiftyButton*)buttonWithTheme:(NiftyButtonColorTheme)colorTheme frame:(CGRect)aFrame{
++ (id)buttonWithTheme:(NiftyButtonColorTheme)colorTheme frame:(CGRect)aFrame{
 	NiftyButton *newButton = [[NiftyButton alloc] initWithFrame:aFrame];
 	
 	if(newButton){

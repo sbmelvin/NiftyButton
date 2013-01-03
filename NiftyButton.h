@@ -17,8 +17,8 @@ typedef NS_ENUM(NSUInteger, NiftyButtonColorTheme)
 @class UIButton;
 @interface NiftyButton : UIButton
 
-+ (NiftyButton*)buttonWithBorderColor:(UIColor*)aBorderColor topColor:(UIColor*)aTopColor bottomColor:(UIColor*)aBottomColor frame:(CGRect)aFrame;
-+ (NiftyButton*)buttonWithTheme:(NiftyButtonColorTheme)colorTheme frame:(CGRect)aFrame;
++ (id)buttonWithBorderColor:(UIColor*)aBorderColor topColor:(UIColor*)aTopColor bottomColor:(UIColor*)aBottomColor frame:(CGRect)aFrame;
++ (id)buttonWithTheme:(NiftyButtonColorTheme)colorTheme frame:(CGRect)aFrame;
 
 - (void)setButtonBorderColor:(UIColor*)aBorderColor topColor:(UIColor*)aTopColor bottomColor:(UIColor*)aBottomColor forState:(UIControlState)aState;
 - (void)setColorTheme:(NiftyButtonColorTheme)aTheme;
