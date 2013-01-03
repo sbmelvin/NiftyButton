@@ -26,7 +26,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 @implementation NiftyButton
 
 
-+ (NiftyButton*)buttonWithBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor frame:(CGRect)aFrame{
++ (id)buttonWithBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor frame:(CGRect)aFrame{
     NiftyButton *newButton = [[NiftyButton alloc] initWithFrame:aFrame];
    
     if(newButton){
@@ -37,7 +37,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return newButton;
 }
 
-+ (NiftyButton*)buttonWithTheme:(NiftyButtonColorTheme)colorTheme frame:(CGRect)aFrame{
++ (id)buttonWithTheme:(NiftyButtonColorTheme)colorTheme frame:(CGRect)aFrame{
 	NiftyButton *newButton = [[NiftyButton alloc] initWithFrame:aFrame];
 	
 	if(newButton){
