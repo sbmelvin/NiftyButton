@@ -31,4 +31,6 @@ typedef NS_ENUM(NSUInteger, NiftyButtonColorTheme)
 
 - (void)setLabelColorWhite;
 - (void)setLabelColorBlack;
+
+- (void)setTitleForAllStates:(NSString*)title;
 @end
