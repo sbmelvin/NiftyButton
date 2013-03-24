@@ -31,7 +31,7 @@ NiftyButton *button = [NiftyButton buttonWithTheme:NiftyButtonBlackTheme frame:b
 ####Creating a new button with custom attributes:
 This button will have a red to blue top-down gradient and a black border.
 ```objectivec
-NiftyButton *button = [NiftyButton buttonWithBorderColor:[UIColor blackColor topColor:[UIColor redColor] bottomColor:[UIColor blueColor] frame:myFrame];
+NiftyButton *button = [NiftyButton buttonWithBorderColor:[UIColor blackColor] topColor:[UIColor redColor] bottomColor:[UIColor blueColor] frame:myFrame];
 ```
 
 ####Creating a new button using initWithFrame:
