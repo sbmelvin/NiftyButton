@@ -204,10 +204,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     UIColor *innerGlow = [UIColor colorWithWhite:1.0 alpha:0.1];
     
     // Gradient Declarations
-    NSArray *gradientColors = (@[
-                               (id)aTopColor.CGColor,
-                               (id)aBottomColor.CGColor
-                               ]);
+    NSArray *gradientColors = (@[(id)aTopColor.CGColor, (id)aBottomColor.CGColor]);
     
     CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)(gradientColors), NULL);
 
