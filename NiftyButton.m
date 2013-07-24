@@ -183,6 +183,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+    
+    [[self titleLabel] setShadowOffset:CGSizeMake(0, 0)];
 }
 
 - (void)setButtonBorderColor:(UIColor *)aBorderColor topColor:(UIColor *)aTopColor bottomColor:(UIColor *)aBottomColor forState:(UIControlState)aState{
