@@ -1,5 +1,3 @@
-#EXPERIMENTAL iOS7 BRANCH - NOT STABLE
-
 ###NiftyButton is my attempt to replicate the style of the buttons used by [Twitter Bootstrap](http://twitter.github.com/bootstrap/components.html#buttonDropdowns).
 
 The NiftyButton class enables developers to quickly create visually appealing buttons.     
@@ -61,7 +59,7 @@ NiftyButton *button = [[NiftyButton alloc] initWithFrame:buttonFrame];
 ```
 
 ##Creating a button using Interface Builder:
-Use NiftyButton like any other subclass of a UIKit class. Drag a UIButton into the view you wish to display the button, set its class to NiftyButton, make your IBOutlet and IBAction connections, and customize your button in code.
+Use NiftyButton like any other subclass of a UIKit class. Drag a UIButton into the view you wish to display the button, set its class to NiftyButton, make your IBOutlet and IBAction connections, and customize your button in code. If you are using iOS7, make sure you explicitly choose the Custom button type in interface builder. Not doing so will cause the buttons to darken when highlighted.
 
 ##Creating a button *entirely* in Interface Builder:
 If you're simply setting a color theme across all UIControlStates, then it's possible to create a button entirely in IB.
