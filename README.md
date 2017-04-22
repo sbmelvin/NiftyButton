@@ -28,7 +28,7 @@ Using a color-theme will automatically configure your button's text and text-sha
 NiftyButton *button = [NiftyButton buttonWithTheme:NiftyButtonBlackTheme frame:buttonFrame];
 ```
 
-####Creating a new button with custom attributes:
+#### Creating a new button with custom attributes:
 This button will have a red to blue top-down gradient and a black border.
 ```objectivec
 NiftyButton *button = [NiftyButton buttonWithBorderColor:[UIColor blackColor] topColor:[UIColor redColor] bottomColor:[UIColor blueColor] frame:myFrame];
