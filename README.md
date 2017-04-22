@@ -7,7 +7,8 @@ You can create NiftyButtons programmatically or using Interface Builder.
 To create a button you must first decide whether you want to use one of the six predefined color themes or whether you want to roll your own. Don't worry, the look of a button can always be changed later. 
 ## Usage:
 
-The easiest way to create a NiftyButton is to use one of the six predefined color themes. Valid color-theme values are: 
+The easiest way to create a NiftyButton is to use one of the six predefined color themes. 
+Valid color-theme values are: 
 
 - NiftyButtonBlackTheme
 - NiftyButtonWhiteTheme
@@ -21,7 +22,7 @@ The easiest way to create a NiftyButton is to use one of the six predefined colo
 
 Using a color-theme will automatically configure your button's text and text-shadow attributes. The white theme will change the text to black; All other themes change the text to white. Text attributes can be changed at any time, but remember that using a method that sets a predefined color-theme will also change the text attributes.
 
-##Creating a button programmatically:
+## Creating a button programmatically:
 
 #### Creating a new button using a predefined theme:
 ```objectivec
